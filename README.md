@@ -55,8 +55,10 @@ Now in your styles you can use
     --background-color: black;
 }
 ```
+The `data-theme` can be appended to any selector:
 - If no `data-theme` is provided then it will always applies (unless overwritten)
 - If  `data-theme` is provided then it will apply it based on the tag light/dark
+
 ## SCRIPTS
 
 `npm storybook` launches storybook to see use examples.<br>
