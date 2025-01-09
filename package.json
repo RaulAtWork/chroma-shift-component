@@ -1,0 +1,40 @@
+{
+  "name": "chroma-shift",
+  "version": "1.0.0",
+  "description": "npm react component for changing themes on react based web applications",
+  "type": "module",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "storybook dev",
+    "build": "vite build",
+    "prepublish": "rm -rf ./dist && npm run build",
+    "publish": "npm run build && npm publish --access public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RaulAtWork/chroma-shift-component.git"
+  },
+  "keywords": [
+    "react",
+    "theme",
+    "dark-mode"
+  ],
+  "author": "Raul Escabia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RaulAtWork/chroma-shift-component/issues"
+  },
+  "homepage": "https://github.com/RaulAtWork/chroma-shift-component#readme",
+  "devDependencies": {
+    "@storybook/react-vite": "^8.4.7",
+    "vite": "^6.0.7"
+  }
+}
