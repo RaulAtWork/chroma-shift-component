@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+import {ThemeModeProvider, THEMES} from './providers/ThemeMode'
  
-export function ChromaShift() {
-  const [count, setCount] = useState(0);
- 
+export function ChromaShift({children, initialMode = THEMES.USER}) {
   return (
-    <div>
-      <p>Currently, the count is {count}</p>
-      <button onClick={() => setCount(count - 1)}>Subtract</button>
-      <button onClick={() => setCount(count + 1)}>Add</button>
-    </div>
+    <ThemeModeProvider initialMode={initialMode}>
+      {children}
+    </ThemeModeProvider>
   );
 }
+
+export const ChromaShiftThemes = THEMES;
