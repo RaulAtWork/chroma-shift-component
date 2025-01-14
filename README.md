@@ -106,7 +106,10 @@ _XX.XX.XX (major, minor, patch)_
 **Major release** - Changes that break backward compatibility, increment first digit, reset others to 0<br>
 
 
-## CHANGELOG 
+## CHANGELOG
+- *v1.0.0* : First release 
+- *v0.3.4* : Fixed package not correctly generated to npm
+- *v0.3.2* : Fixed and added npmignore
 - *V0.3.1* : Added styling to storybook
 - *v0.3.0* : Added set theme on runtime
 - *v0.2.0* : Added theme access and changed css selector to chroma-theme
