@@ -36,14 +36,16 @@ export const SelectTheTheme = () => (
   <ChromaShift>
     <div className="root">
       <ContentExample />
-      <ThemeSelector />
+      <div>
+        <ThemeSelector />
+      </div>
     </div>
   </ChromaShift>
 );
 
 function CurrentThemeIndicator() {
   const { theme } = useContext(ThemeContext);
-  return <div> Current Theme: {theme}</div>;
+  return <p> Current Theme: {theme}</p>;
 }
 
 function ContentExample() {

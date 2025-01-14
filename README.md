@@ -106,6 +106,7 @@ _XX.XX.XX (major, minor, patch)_
 
 
 ## CHANGELOG 
+- *V0.3.1* : Added styling to storybook
 - *v0.3.0* : Added set theme on runtime
 - *v0.2.0* : Added theme access and changed css selector to chroma-theme
 - *v0.1.0* : First version of the package, includes just the initial mode and three default themes available
