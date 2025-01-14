@@ -2,7 +2,8 @@
 
 npm **react** library for changing color themes on the application.
 
-created by [Raul Escabia](https://github.com/RaulAtWork)
+created by [Raul Escabia](https://github.com/RaulAtWork) <br>
+[github repository](https://github.com/RaulAtWork/chroma-shift-component)
 
 ## SET UP
 install the package usign <br>
