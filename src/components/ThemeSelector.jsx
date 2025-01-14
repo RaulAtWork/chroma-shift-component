@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { ThemeModeContext, THEMES } from "../providers/ThemeMode";
+import { ThemeContext, THEMES } from "../providers/ThemeMode.jsx";
 
 function ThemeSelector() {
-  const { themeMode, setTheme } = useContext(ThemeModeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   function onThemeChange(e) {
     setTheme(e.target.value);
   }
@@ -10,7 +10,7 @@ function ThemeSelector() {
   return (
     <select
       className="color-selector"
-      value={themeMode}
+      value={theme}
       onChange={onThemeChange}
     >
       <option value={THEMES.LIGHT}>Light</option>

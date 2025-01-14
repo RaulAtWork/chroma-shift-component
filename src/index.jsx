@@ -1,12 +1,13 @@
 import React from 'react';
-import {ThemeModeProvider, THEMES} from './providers/ThemeMode'
+import {ThemeContext, ThemeProvider, THEMES} from './providers/ThemeMode.jsx'
  
 export function ChromaShift({children, initialMode = THEMES.USER}) {
   return (
-    <ThemeModeProvider initialMode={initialMode}>
+    <ThemeProvider initialMode={initialMode}>
       {children}
-    </ThemeModeProvider>
+    </ThemeProvider>
   );
 }
 
 export const ChromaShiftThemes = THEMES;
+export const ChromaShiftContext = ThemeContext;

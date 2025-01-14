@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { ChromaShift, ChromaShiftThemes } from "../src/index.jsx";
-import { ThemeModeContext } from "../src/providers/ThemeMode.jsx";
-import './ChromaShift.css'
+import { ThemeContext } from "../src/providers/ThemeMode.jsx";
+import "./ChromaShift.css";
+import ThemeSelector from "../src/components/ThemeSelector.jsx";
 
 export default {
   title: "ChromaShift",
@@ -9,35 +10,47 @@ export default {
 };
 
 export const UserPreference = () => (
-  <ChromaShift>
-    <ContentExample/>
-  </ChromaShift>
+  <div className="root">
+    <ChromaShift>
+      <ContentExample />
+    </ChromaShift>
+  </div>
 );
 
 export const ForceToLightTheme = () => (
-  <ChromaShift initialMode={ChromaShiftThemes.LIGHT}>
-    <ContentExample/>
-  </ChromaShift>
+  <div className="root">
+    <ChromaShift initialMode={ChromaShiftThemes.LIGHT}>
+      <ContentExample />
+    </ChromaShift>
+  </div>
 );
 export const ForceToDarkTheme = () => (
-  <ChromaShift initialMode={ChromaShiftThemes.DARK}>
-    <ContentExample/>
+  <div className="root">
+    <ChromaShift initialMode={ChromaShiftThemes.DARK}>
+      <ContentExample />
+    </ChromaShift>
+  </div>
+);
+
+export const SelectTheTheme = () => (
+  <ChromaShift>
+    <div className="root">
+      <ContentExample />
+      <ThemeSelector />
+    </div>
   </ChromaShift>
 );
 
-
-function CurrentThemeIndicator () {
-  const { themeMode} = useContext(ThemeModeContext);
-  return (
-    <div> Current Theme: {themeMode}</div>
-  )
+function CurrentThemeIndicator() {
+  const { theme } = useContext(ThemeContext);
+  return <div> Current Theme: {theme}</div>;
 }
 
-function ContentExample (){
+function ContentExample() {
   return (
-    <div className="root">
+    <>
       <h1>This is a title</h1>
-      <CurrentThemeIndicator/>
-    </div>
-  )
+      <CurrentThemeIndicator />
+    </>
+  );
 }
