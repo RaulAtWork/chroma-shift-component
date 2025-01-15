@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { ChromaShift, ChromaShiftThemes } from "../src/index.jsx";
 import { ThemeContext } from "../src/providers/ThemeMode.jsx";
 import "./ChromaShift.css";
-import ThemeSelector from "../src/components/ThemeSelector.jsx";
 
 export default {
   title: "ChromaShift",
@@ -32,6 +31,7 @@ export const ForceToDarkTheme = () => (
   </div>
 );
 
+
 export const SelectTheTheme = () => (
   <ChromaShift>
     <div className="root">
@@ -42,6 +42,21 @@ export const SelectTheTheme = () => (
     </div>
   </ChromaShift>
 );
+
+export const IncludeOtherThemes = () => (
+  <div className="root">
+    <ChromaShift initialMode={ChromaShiftThemes.USER} addThemes={["red", "blue", "green"]}>
+      <ContentExample />
+      <ThemeSelector/>
+      <p>Themes that were added: red, blue , green</p>
+    </ChromaShift>
+  </div>
+);
+
+
+
+
+// HELPER FUNCTIONS
 
 function CurrentThemeIndicator() {
   const { theme } = useContext(ThemeContext);
@@ -54,5 +69,23 @@ function ContentExample() {
       <h1>This is a title</h1>
       <CurrentThemeIndicator />
     </>
+  );
+}
+
+
+function ThemeSelector() {
+  const { theme, setTheme } = useContext(ThemeContext);
+  function onThemeChange(e) {
+    setTheme(e.target.value);
+  }
+
+  return (
+    <select
+      className="color-selector"
+      value={theme}
+      onChange={onThemeChange}
+    >
+      {Object.values(ChromaShiftThemes).map((t, index) => <option key={t +"-" + index} value={t}>{t}</option> )}
+    </select>
   );
 }

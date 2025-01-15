@@ -11,6 +11,24 @@
     --text-color: white;
 }
 
+:root [chroma-theme="red"]{
+    --primary-color: red;
+    --background-color: black;
+    --text-color: red;
+}
+
+:root [chroma-theme="blue"]{
+    --primary-color: blue;
+    --background-color: black;
+    --text-color: blue;
+}
+
+:root [chroma-theme="green"]{
+    --primary-color: green;
+    --background-color: black;
+    --text-color: green;
+}
+
 .root{
     background-color: var(--background-color);
     color: var(--text-color);

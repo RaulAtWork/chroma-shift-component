@@ -87,6 +87,16 @@ const {setTheme} = useContext(ChromaShiftContext);
 setTheme(ChromaShiftThemes.DARK);
 ```
 note: only themes that are on ChromaShiftThemes will be accepted
+
+### Add New Themes
+You can specified your own themes that will be loaded into `ChromaShiftThemes` using `addThemes`.
+```html
+// Component will be initialized with those themes onto ChromaShiftThemes
+<ChromaShift addThemes={["red", "blue", "green"]}>
+    ... your app 
+</ChromaShift>
+```
+
 ## SCRIPTS
 
 `npm storybook` launches storybook to see use examples.<br>
@@ -107,6 +117,7 @@ _XX.XX.XX (major, minor, patch)_
 
 
 ## CHANGELOG
+- *v1.1.0* : Added support for multiple themes
 - *v1.0.0* : First release 
 - *v0.3.4* : Fixed package not correctly generated to npm
 - *v0.3.2* : Fixed and added npmignore

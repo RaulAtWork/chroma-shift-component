@@ -15,7 +15,13 @@ const ThemeContext = createContext({
 });
 
 // Provider
-function ThemeProvider({ children, initialMode = THEMES.USER }) {
+function ThemeProvider({ children, addThemes, initialMode = THEMES.USER }) {
+
+  // Append the themes to the list, this must be done before enythign else
+  for (var th of addThemes){
+    THEMES[th.toUpperCase()] = th.toLowerCase()
+  }
+
   const [theme, setNewTheme] = useState(initialMode);
   const [isSystemDarkPreference] = useSystemTheme();
 
