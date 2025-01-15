@@ -6,44 +6,44 @@ created by [Raul Escabia](https://github.com/RaulAtWork) <br>
 [github repository](https://github.com/RaulAtWork/chroma-shift-component)
 
 ## SET UP
-install the package usign <br>
+install the package: <br>
 `npm install chroma-shift` <br>
 
-Import the package to your react page using <br>
+Import the package to your React app:<br>
 `import { ChromaShift } from "chroma-shift"`
 
-Then include ChromaShift on the most-upper part of your React application (e.g. index, App...)
+Wrap your application with the ChromaShift component, preferably at the root level (e.g., in *index.js*, *App.js*):
 
 ```html
 <ChromaShift>
-    ... your app
+   {/* You App components*/}
 </ChromaShift>
 ```
 
-by default the mode is _USER_ which will detect which color scheme is configured on the system. If you wish to change the initial configuration, use `ChromaShiftThemes`
-
+By default, the theme mode is set to _USER_, which automatically detects the system's configured color scheme. If you'd like to specify a theme, use the `ChromaShiftThemes` configuration:
 ```jsx
-import { ChromaShift, ChromaShiftThemes } from "chroma-shift"
+import { ChromaShift, ChromaShiftThemes } from "chroma-shift";
 
-<!--This is the default one-->
+// Default behavior (system-detected theme)
 <ChromaShift initialTheme={ChromaShiftThemes.USER}>
-    ... your app 
+    {/* Your app components */}
 </ChromaShift>
 
-<!-- Forces light theme -->
+// Force light theme
 <ChromaShift initialTheme={ChromaShiftThemes.LIGHT}>
-    ... your app
+    {/* Your app components */}
 </ChromaShift>
 
-<!-- Forces dark theme -->
+// Force dark theme
 <ChromaShift initialTheme={ChromaShiftThemes.DARK}>
-    ... your app
+    {/* Your app components */}
 </ChromaShift>
+
 ```
-Now in your styles you can use
+In your CSS, you can define custom styles for different themes using the `chroma-theme` attribute:
 
 ```css
-/* always applies */
+/* Styles that apply to all themes */
 :root {
     --background-color: white; 
 }
@@ -59,55 +59,53 @@ Now in your styles you can use
 }
 ```
 The `chroma-theme` can be appended to any selector:
-- If no `chroma-theme` is provided then it will always applies (unless overwritten).
-- If  `chroma-theme` is provided then it will apply it based on the tag light/dark.
+- If no `chroma-theme` is specified, the styles will always apply (unless overridden).
+- If  `chroma-theme` is present, the styles will apply only to the specified theme (light or dark).
 
 ## FEATURES
 
 ### Current Theme
 
-You can retrive the current theme by using
+You can access the current theme using the `ChromaShiftContext`:
 ```jsx 
 import { ChromaShiftContext } from 'chroma-shift'
 
-function MyTheme (){
-    const {theme} = useContext(ChromaShiftContext);
+function MyTheme(){
+    const { theme } = useContext(ChromaShiftContext);
     return(
-        <p> My current theme is {theme} </p>
+        <p>My current theme is {theme}</p>
     )
 }
 ```
 
-### Change theme on runtime
-You can change the theme anytime by using function
+### Change Theme at Runtime
+You can dynamically update the theme at runtime using the `setTheme` function:
 ```js
 import { ChromaShiftContext, ChromaShiftThemes } from 'chroma-shift'
+
 const {setTheme} = useContext(ChromaShiftContext);
 // change the theme to dark
 setTheme(ChromaShiftThemes.DARK);
 ```
 note: only themes that are on ChromaShiftThemes will be accepted
 
-### Add New Themes
-You can specified your own themes that will be loaded into `ChromaShiftThemes` using `addThemes`.
-```html
+### Add Custom Themes
+You can define and add your own themes during initialization using the `addThemes` property:
+```jsx
 // Component will be initialized with those themes onto ChromaShiftThemes
 <ChromaShift addThemes={["red", "blue", "green"]}>
-    ... your app 
+     {/* Your app */}
 </ChromaShift>
 ```
-
+These themes will then be available in `ChromaShiftThemes`.
 ## SCRIPTS
 
-`npm storybook` launches storybook to see use examples.<br>
-`npm build` vite build the project.<br>
-`npm prepublish` run before publish the package to clean up the dist and rerun the build.<br>
-`npm publish` publish to npm.<br>
-
-`npm test` run tests on the project.<br>
+`npm storybook`: Launches Storybook to explore usage examples.<br>
+`npm build`: Builds the project using Vite.<br>
+`npm test`: Run tests for the project.<br>
 
 ## VERSIONING
-
+Versioning follows the standard major.minor.patch format<br>
 _XX.XX.XX (major, minor, patch)_
 
 **First release** 1.0.0 <br>
@@ -117,11 +115,11 @@ _XX.XX.XX (major, minor, patch)_
 
 
 ## CHANGELOG
-- *v1.1.0* : Added support for multiple themes
-- *v1.0.0* : First release 
-- *v0.3.4* : Fixed package not correctly generated to npm
-- *v0.3.2* : Fixed and added npmignore
-- *V0.3.1* : Added styling to storybook
-- *v0.3.0* : Added set theme on runtime
-- *v0.2.0* : Added theme access and changed css selector to chroma-theme
-- *v0.1.0* : First version of the package, includes just the initial mode and three default themes available
+- *v1.1.0* : Added support for multiple themes.
+- *v1.0.0* : First official release. 
+- *v0.3.4* : Fixed package not correctly generated to npm.
+- *v0.3.2* : Fixed and added npmignore.
+- *V0.3.1* : Added styling to storybook.
+- *v0.3.0* : Added set theme on runtime.
+- *v0.2.0* : Added theme access and changed css selector to chroma-theme.
+- *v0.1.0* : First version of the package, includes just the initial mode and three default themes available.
